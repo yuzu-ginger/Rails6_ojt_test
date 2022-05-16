@@ -20,11 +20,7 @@ application_controller.rb のkeysを `keys: [:email]` にする
 ### 2. ユーザの画像が表示されない(ファイルがない)
 app/models/user.rb のもしユーザの画像がなかったらの記述で、画像のファイル名が間違っている。正しくは `no_image.jpg`
 <br><br>
-### 3-1. ユーザ詳細ページから投稿しようとするとルーティングエラーになる
-usersのshowページで投稿フォームの部分テンプレートの部分の記述が間違っている<br>
-コントローラでは新規投稿は `@book` になっているのに、viewぺーじでは `@new_book` になっていた
-<br><br>
-### 3-2. 新規投稿しても反映されない
+### 3. 新規投稿しても反映されない
 books_controller.rb で、createアクションに `@book.user_id = current_user.id` の記述がない
 <br><br>
 ### 4. 本の編集画面でエラーが出る
@@ -39,4 +35,8 @@ books_controllerのdestroyアクションの綴りミス
 <br><br>
 ### 7. 本の一覧から本の詳細ページに遷移できない
 booksのviewページの_index部分テンプレートで、本のタイトルのパスが `books_path(book.id)` になっていた。 `book` に直す
+<br><br>
+### 8. ユーザ詳細ページから投稿しようとするとルーティングエラーになる
+usersのshowページで投稿フォームの部分テンプレートの部分の記述が間違っている<br>
+コントローラでは新規投稿は `@book` になっているのに、viewぺーじでは `@new_book` になっていた
 <br><br>
