@@ -6,4 +6,8 @@ dmm webcamp OJT卒業テスト
 - `rails db:migrate` を実行
 - `bundle exec rails webpacker:install` を実行
 <br><br>
-### 2. 
+### 2. ログイン・サインアップができない問題
+routes.rbの記述の順番<br>
+`devise_for` は `resources` よりも上の行に書く
+<br><br>
+### 3.
