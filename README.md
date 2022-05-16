@@ -6,8 +6,14 @@ dmm webcamp OJT卒業テスト
 - `rails db:migrate` を実行
 - `bundle exec rails webpacker:install` を実行
 <br><br>
-### 2. ログイン・サインアップができない問題
+### 2. ログイン・サインアップができない問題(ページが動作していない)
 routes.rbの記述の順番<br>
 `devise_for` は `resources` よりも上の行に書く
 <br><br>
-### 3.
+### 3. ログイン・サインアップができない問題(サインアップできない&名前ログイン)
+- app/models/user.rb のバリデーションの設定
+`validates :introduction, presence: true, length: { maximum: 50 }`のうち`presence: true`はいらない。イントロダクションが必須になってしまう
+- 名前ログイン
+config/initializers/devise.rb の`config.authentication_keys = [:email]` を `[:name]` にする<br>
+application_controller.rb のkeysを `keys: [:email]` にする
+<br><br>
