@@ -27,4 +27,5 @@ usersのshowページで投稿フォームの部分テンプレートの部分�
 ### 3-2. 新規投稿しても反映されない
 books_controller.rb で、createアクションに `@book.user_id = current_user.id` の記述がない
 <br><br>
-### 7. 
+### 7. 本の一覧から本の詳細ページに遷移できない
+booksのviewページの_index部分テンプレートで、本のタイトルのパスが `books_path(book.id)` になっていた。 `book` に直す
