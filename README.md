@@ -17,3 +17,6 @@ routes.rbの記述の順番<br>
 config/initializers/devise.rb の`config.authentication_keys = [:email]` を `[:name]` にする<br>
 application_controller.rb のkeysを `keys: [:email]` にする
 <br><br>
+### 4. ユーザの画像が表示されない(ファイルがない)
+app/models/user.rb のもしユーザの画像がなかったらの記述で、画像のファイル名が間違っている。正しくは `no_image.jpg`
+<br><br>
