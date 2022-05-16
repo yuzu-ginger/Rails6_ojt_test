@@ -34,6 +34,9 @@ books_controllerにeditアクションの中身がない。 `@book = Book.find(p
 books_controllerのupdateアクションで、失敗したときに `redirect_to` になっている<br>
 `render 'edit'` にする
 <br><br>
+### 6. 本の削除ができない
+books_controllerのdestroyアクションの綴りミス
+<br><br>
 ### 7. 本の一覧から本の詳細ページに遷移できない
 booksのviewページの_index部分テンプレートで、本のタイトルのパスが `books_path(book.id)` になっていた。 `book` に直す
 <br><br>

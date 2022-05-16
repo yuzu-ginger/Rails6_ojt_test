@@ -34,7 +34,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def destry
+  def destroy
     @book.destroy
     redirect_to books_path
   end
