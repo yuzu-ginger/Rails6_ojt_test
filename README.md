@@ -31,6 +31,8 @@ books_controller.rb で、createアクションに `@book.user_id = current_user
 books_controllerにeditアクションの中身がない。 `@book = Book.find(params[:id])` を追記
 <br><br>
 ### 5. 本の編集画面でエラーメッセージが出ない
+books_controllerのupdateアクションで、失敗したときに `redirect_to` になっている<br>
+`render 'edit'` にする
 <br><br>
 ### 7. 本の一覧から本の詳細ページに遷移できない
 booksのviewページの_index部分テンプレートで、本のタイトルのパスが `books_path(book.id)` になっていた。 `book` に直す
