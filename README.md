@@ -8,7 +8,16 @@ dmm webcamp OJT卒業テスト
 <br><br>
 ### 1-1. ログイン・サインアップができない問題(ページが動作していない)
 routes.rbの記述の順番<br>
-`devise_for` は `resources` よりも上の行に書く
+`devise_for` は `resources` よりも上の行に書く<br>
+routes.rbの`devise_for :users`を`resources`の上に移動する。<br>
+`resources :users, only: :show, :index, :edit, :update]`が先に読み込まれ、<br>
+`GET '/users/:id' => 'users#show'`になる。<br>
+deviseで`GET '/users/sign_in'`で、id = sign_inという判定になる。<br>
+usersコントローラでログイン制限がかかっているので<br>
+`/users/(idが)sign_in` => `users#show` => ログインしていないので `/users/sign_in`にリダイレクト => `users#show` => ...<br>
+という無限ループになる。<br>
+devise_forを上に記述することで<br>
+`GET '/users/sign_in'`=> `devise/sessions#new`になる
 <br><br>
 ### 1-2. ログイン・サインアップができない問題(サインアップできない&名前ログイン)
 - app/models/user.rb のバリデーションの設定
